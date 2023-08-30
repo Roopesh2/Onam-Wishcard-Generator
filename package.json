@@ -1,0 +1,19 @@
+{
+	"name": "onam-wishcard",
+	"version": "1.0.0",
+	"description": "Quickly create and share onam wishcards using customizable templates",
+	"main": "index.js",
+	"scripts": {
+		"start": "live-server",
+		"fmt": "prettier . --write"
+	},
+	"keywords": [
+		"wishcard-generator",
+		"onam"
+	],
+	"author": "Roopesh OR",
+	"devDependencies": {
+		"live-server": "^1.2.2",
+		"prettier": "^3.0.3"
+	}
+}
