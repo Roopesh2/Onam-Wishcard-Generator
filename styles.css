@@ -1,3 +1,73 @@
- * {
-  box-sizing: border-box;
- }
+* {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+
+header {
+	padding: 10px;
+	background-color: #123;
+	color: aliceblue;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}
+
+h1 {
+	text-align: center;
+}
+
+.editor-area {
+	padding: 10px 40px;
+}
+
+.canvas {
+	width: 100%;
+	height: 60vh;
+	border: #123 1px solid;
+	border-radius: 10px;
+	margin-bottom: 15px;
+}
+
+.tools {
+	background-color: #123;
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 10px;
+}
+.tools div {
+	display: flex;
+	align-items: center;
+}
+
+.tools button {
+	background-color: #0000;
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	color: #fff;
+	display: inline-flex;
+	align-items: center;
+}
+#set-color {
+	background-color: #000;
+	border: none;
+	width: 35px;
+	height: 35px;
+}
+.action-icon {
+	fill: #fff;
+	stroke: #fff;
+	width: 34px;
+	height: 34px;
+}
