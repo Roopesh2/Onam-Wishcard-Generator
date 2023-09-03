@@ -1,0 +1,64 @@
+.SVGEditor-wishcard-container {
+	width: 100%;
+	height: 60vh;
+	border: #123 1px solid;
+	border-radius: 10px;
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.SVGEditor-toolbar {
+	background-color: #123;
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 10px;
+}
+
+.SVGEditor-toolbar > div {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.SVGEditor-tool {
+	background-color: #123;
+	border: none;
+	border-radius: 5px;
+	padding: 0px;
+	color: #fff;
+	display: inline-flex;
+	align-items: center;
+	height: 30px;
+}
+
+#SVGEditor-set-color {
+	background-color: #000;
+	border: 3.1px solid #ffffff;
+	border-radius: 4px;
+	width: 29px;
+	height: 29px;
+}
+
+.SVGEditor-action-icon {
+	fill: #fff;
+	stroke: #fff;
+	width: 34px;
+	height: 34px;
+}
+
+foreignObject {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #000a;
+	border: 1px solid #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: move;
+}
