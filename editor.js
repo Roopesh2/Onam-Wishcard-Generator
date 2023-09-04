@@ -92,7 +92,7 @@
 			this.setTemplate("Template 1")
 			this.createToolBar();
 
-			this.createTool(RawData.addText, "SVGEditor-add-text", "click", this.addText());
+			this.createTool(RawData.addText, "SVGEditor-add-text", "click", this.addText);
 			this.createTool(RawData.addImg, "SVGEditor-add-img", "click", () => {});
 			this.createTool(
 				RawData.colorPicker,
@@ -122,14 +122,13 @@
 			window.onresize = () => {
 				this.setTemplate(this.template)
 			}
-			// this.addText();
 		}
 		addText () {
 				let r = document.createElementNS('http://www.w3.org/2000/svg', "foreignObject");
 				r.draggable="true";
 				r.setAttribute("width", "220")
 				r.setAttribute("height", "50")
-				r.innerHTML = RawData.input
+				r.innerHTML = RawData.input;
 				this.canvas.appendChild(r);
 				dragElement(r)
 		}

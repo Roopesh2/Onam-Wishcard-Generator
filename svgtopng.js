@@ -17,5 +17,8 @@ window.svgToPng = async function svgToPng (svg, callback) {
 
   const blob = await canvas.convertToBlob()
   const pngUrl = URL.createObjectURL(blob)
-  pngUrl.then(callback)
+  console.log(pngUrl);
+  let i = document.createElement("img");
+  i.src = pngUrl;
+  document.body.appendChild(i)
 }
