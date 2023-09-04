@@ -110,7 +110,7 @@
 				"SVGEditor-share",
 				"click",
 				() => {
-					svgToPng(this.canvas, (e) => console.log(e))
+					svgToPng(this.canvas, RawData.templates[this.template].size, (e) => console.log(e))
 				},
 				false,
 			);
