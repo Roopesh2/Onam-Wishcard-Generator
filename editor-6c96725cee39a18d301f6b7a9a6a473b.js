@@ -10,7 +10,7 @@
 		share: "<svg viewBox='0 -960 960 960' class='SVGEditor-action-icon'><path d='M696.045-106.001q-45.814 0-77.929-32.083T586.001-216q0-8.49 1.192-15.514 1.192-7.025 3.577-15.794L338.923-401.539q-13.846 16.769-33.431 24.154-19.584 7.384-41.492 7.384-45.833 0-77.916-32.07t-32.083-77.884q0-45.814 32.083-77.929T264-589.999q21.615 0 41.346 7.884 19.731 7.885 33.577 23.654L590.77-712.692q-2.385-8.769-3.577-15.794-1.192-7.024-1.192-15.514 0-45.833 32.07-77.916t77.884-32.083q45.814 0 77.929 32.07t32.115 77.884q0 45.814-32.083 77.929T696-634.001q-21.908 0-41.492-7.384-19.585-7.385-33.431-24.154L369.23-511.308q2.385 8.769 3.577 15.767 1.192 6.997 1.192 15.461 0 8.465-1.192 15.542t-3.577 15.846l251.847 154.231q13.846-17.769 33.431-24.654 19.584-6.884 41.492-6.884 45.833 0 77.916 32.07t32.083 77.884q0 45.814-32.07 77.929t-77.884 32.115ZM696-685.999q24.246 0 41.124-16.877 16.877-16.878 16.877-41.124 0-24.246-16.877-41.124-16.878-16.877-41.124-16.877-24.246 0-41.124 16.877-16.877 16.878-16.877 41.124 0 24.246 16.877 41.124 16.878 16.877 41.124 16.877Zm-432 264q24.246 0 41.124-16.877 16.877-16.878 16.877-41.124 0-24.246-16.877-41.124-16.878-16.877-41.124-16.877-24.246 0-41.124 16.877-16.877 16.878-16.877 41.124 0 24.246 16.877 41.124 16.878 16.877 41.124 16.877Zm432 264q24.246 0 41.124-16.877 16.877-16.878 16.877-41.124 0-24.246-16.877-41.124-16.878-16.877-41.124-16.877-24.246 0-41.124 16.877-16.877 16.878-16.877 41.124 0 24.246 16.877 41.124 16.878 16.877 41.124 16.877ZM696-744ZM264-480Zm432 264Z'/></svg>",
 		canvas: `
 		<svg xmlns="http://www.w3.org/2000/svg">
-			<image id="SVGEditor-bg" href="" width="100%"></image>
+			<image id="SVGEditor-bg" href=""></image>
 		</svg>`,
 		templates: {
 			"Template 1": {
@@ -57,9 +57,13 @@
 			"#48cae4",
 		],
 		input: `
-		<div class="SVGEditor-text">
-		<input xmlns='http://www.w3.org/1999/xhtml' value='Type here'
-		style="width: 200px; height: 30px"></input>
+		<div class="SVGEditor-text SVGEditor-elements">
+		<textarea xmlns='http://www.w3.org/1999/xhtml'
+		style="width: 200px; height: 30px">Type Here</textarea>
+		<button class="SVGEditor-action-translate"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-93.847 323.847-250l42.768-42.768 83.386 83.385v-240.618l-240.003-.615 83.386 83.385L250-323.847 93.847-480l155.538-155.537 42.768 42.768-82.77 82.77h240.618v-240.618l-83.386 83.385L323.847-710 480-866.153 636.153-710l-42.768 42.768-83.386-83.385v240.618l240.003.615-83.386-83.385L710-636.153 866.153-480 710-323.847l-42.768-42.768 83.385-83.386H509.999l-.615 240.003 83.385-83.386L636.153-250 480-93.847Z"/></svg></button>
+		<button class="SVGEditor-action-scale"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M140.001-440v-80H200v80h-59.999Zm0-160v-80H200v80h-59.999Zm0-160v-59.999H200V-760h-59.999ZM280-760v-59.999h80V-760h-80Zm160 619.999V-200h80v59.999h-80ZM440-760v-59.999h80V-760h-80Zm160 619.999V-200h80v59.999h-80Zm160 0V-200h59.999v59.999H760Zm0-136.153v-80h59.999v80H760ZM760-440v-80h59.999v80H760Zm0-163.846V-760H600v-59.999h219.999v216.153H760ZM140.001-140.001V-360H200v160h160v59.999H140.001Z"/></svg></button>
+		<button class="SVGEditor-action-cancel"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button>
+		<button class="SVGEditor-action-delete"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/></svg></button>
 		</div>`
 	},
 	createElement = _ => document.createElement(_),
@@ -80,7 +84,9 @@
 		canvas;
 		/** @type {string} */
 		template;
-		/** @type {number[]} */
+		/** @type {HTMLElement} */
+		activeTool;
+
 		/**
 		 * Creates an instance of SVGEditor.
 		 * @param {HTMLElement} container
@@ -95,7 +101,7 @@
 			this.createTool(RawData.addText, "SVGEditor-add-text", "click", () =>
 				this.addText(),
 			);
-			this.createTool(RawData.addImg, "SVGEditor-add-img", "click", () => {});
+			// this.createTool(RawData.addImg, "SVGEditor-add-img", "click", () => {});
 			this.createTool(
 				RawData.colorPicker,
 				"SVGEditor-set-color",
@@ -123,26 +129,67 @@
 				theme: "dark",
 				margin: 10,
 				swatches: RawData.colorSwathces,
+				color: "#fff",
 			});
+
+			alwan.on("change", (e) => {
+				this.activeTool.setColor(e.hex);
+			});
+
 			window.onresize = () => {
 				this.setTemplate(this.template);
 			};
 			this.addText();
 		}
 		addText() {
-			let r = document.createElementNS(
+			let fo = document.createElementNS(
 				"http://www.w3.org/2000/svg",
 				"foreignObject",
 			);
-			r.draggable = "true";
-			r.setAttribute("width", "220");
-			r.setAttribute("height", "50");
-			r.setAttribute("x", "100");
-			r.setAttribute("y", "100");
-			r.innerHTML = RawData.input;
-			console.log(this);
-			this.canvas.appendChild(r);
-			dragElement(r);
+			let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+			fo.draggable = "true";
+			fo.setAttribute("width", "240");
+			fo.setAttribute("height", "70");
+			fo.setAttribute("x", "50");
+			fo.setAttribute("y", "50");
+			fo.setAttribute("transform", "scale(1)");
+			fo.innerHTML = RawData.input;
+			this.canvas.appendChild(fo);
+			this.canvas.appendChild(text);
+			text.style.display = "none";
+			let translateBtn = fo.querySelector(".SVGEditor-action-translate");
+			let scalerBtn = fo.querySelector(".SVGEditor-action-scale");
+			let cancelBtn = fo.querySelector(".SVGEditor-action-cancel");
+			let deleteBtn = fo.querySelector(".SVGEditor-action-delete");
+			let input = fo.querySelector("textarea");
+			dragElement(fo, translateBtn);
+			resizeElement([fo, input], scalerBtn);
+			fo.setColor = function (col) {
+				input.style.color = col;
+				text.setAttribute("fill", col);
+			};
+
+			this.activeTool = fo;
+			cancelBtn.onclick = () => {
+				text.textContent = input.value;
+				text.style.display = "block";
+				let cvsBR = this.canvas.getBoundingClientRect();
+				let inpBR = input.getBoundingClientRect();
+				text.setAttribute("width", fo.getAttribute("width"));
+				text.setAttribute("height", fo.getAttribute("height"));
+				text.setAttribute("x", inpBR.x - cvsBR.x);
+				text.setAttribute("y", inpBR.y - cvsBR.y);
+				text.setAttribute("transform", fo.getAttribute("transform"));
+				fo.style.display = "none";
+			};
+
+			deleteBtn.onclick = () => {
+				this.canvas.removeChild(fo);
+			};
+			text.onclick = () => {
+				text.style.display = "none";
+				fo.style.display = "block";
+			};
 		}
 		createCanvas() {
 			this.canvasContainer = createElement("div");
@@ -230,40 +277,34 @@
 
 			this.canvas.setAttribute("width", w + "px");
 			this.canvas.setAttribute("height", h + "px");
-			this.canvas.setAttribute("viewport", "0 0 " + w + " " + h);
+			this.canvas.setAttribute("viewport", "0 0 " + iWidth + " " + iHeight);
+			this.bgTemplate.setAttribute("width", w + "px");
+			this.bgTemplate.setAttribute("height", h + "px");
 		}
 	}
 
 	/**
 	 *
-	 * @param {HTMLElement} elem
+	 * @param {HTMLElement} target
+	 * @param {HTMLElement} reference
 	 */
-	function dragElement(elem) {
-		elem.onmousedown = dragMouseDown;
+	function dragElement(target, reference) {
+		reference.onmousedown = dragMouseDown;
 
-		/**
-		 *
-		 * @param {MouseEvent} e
-		 */
 		function dragMouseDown(e) {
-			e = e;
 			e.preventDefault();
 			document.onmouseup = closeDragElement;
-			// call a function whenever the cursor moves:
 			document.onmousemove = elementDrag;
 		}
 
-		/**
-		 *
-		 * @param {MouseEvent} e
-		 */
 		function elementDrag(e) {
-			e = e;
 			e.preventDefault();
-			let x = parseInt(elem.getAttribute("x")) + e.movementX;
-			let y = parseInt(elem.getAttribute("y")) + e.movementY;
-			elem.setAttribute("x", x);
-			elem.setAttribute("y", y);
+			// TODO: compensate overtranslation due to scaling
+			// let scaling = parseFloat(target.outerHTML.match(/(?<=scale\()\d+.?\d*/)[0])
+			let x = parseInt(target.getAttribute("x")) + e.movementX;
+			let y = parseInt(target.getAttribute("y")) + e.movementY;
+			target.setAttribute("x", x);
+			target.setAttribute("y", y);
 		}
 
 		function closeDragElement() {
@@ -273,5 +314,39 @@
 		}
 	}
 
+	/**
+	 *
+	 * @param {HTMLElement[]} targets
+	 * @param {HTMLElement} reference
+	 */
+	function resizeElement(targets, reference) {
+		reference.onmousedown = dragMouseDown;
+		let trackX;
+		function dragMouseDown(e) {
+			e.preventDefault();
+			document.onmouseup = closeDragElement;
+			document.onmousemove = elementDrag;
+			trackX = e.pageX;
+		}
+
+		function elementDrag(e) {
+			e.preventDefault();
+			for (let target of targets) {
+				let w = target.getBoundingClientRect().width + e.movementX;
+				let h = target.getBoundingClientRect().height + e.movementY;
+
+				target.setAttribute("width", w);
+				target.setAttribute("height", h);
+				target.style.width = w + "px";
+				target.style.height = h + "px";
+			}
+		}
+
+		function closeDragElement() {
+			// stop moving when mouse button is released:
+			document.onmouseup = null;
+			document.onmousemove = null;
+		}
+	}
 	window.SVGEditor = SVGEditor;
 })();

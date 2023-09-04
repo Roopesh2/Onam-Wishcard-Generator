@@ -1,7 +1,6 @@
 .SVGEditor-wishcard-container {
 	width: 100%;
 	height: 60vh;
-	border: #123 1px solid;
 	border-radius: 10px;
 	margin-bottom: 15px;
 	display: flex;
@@ -51,14 +50,62 @@
 	height: 34px;
 }
 
-.SVGEditor-text {
+.SVGEditor-wishcard-container svg {
+	border: #123 1px solid;
+	border-radius: 10px;
+}
+
+.SVGEditor-elements {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: #000a;
-	border: 1px solid #fff;
+	/* background-color: #0000;
+	border: 1px solid #fff; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.SVGEditor-elements textarea {
+	background-color: #000a;
+	color: #fff;
+	border: 2px solid #fff;
+	z-index: 2;
+}
+
+.SVGEditor-action-translate, .SVGEditor-action-scale, .SVGEditor-action-cancel, .SVGEditor-action-delete  {
+	position: absolute;
+	padding: 0;
+	background: #000a;
+	border: 2px solid #fff;
+	border-radius: 5px;
+}
+
+.SVGEditor-action-translate {
+	left: 0;
+	top: 0;
 	cursor: move;
+}
+.SVGEditor-action-scale {
+	right: 0;
+	bottom: 0;
+	cursor: nw-resize;
+}
+.SVGEditor-action-cancel {
+	right: 0;
+	top: 0;
+	cursor: pointer;
+}
+
+.SVGEditor-action-delete {
+	left: 0;
+	bottom: 0;
+	cursor: pointer;
+}
+
+.SVGEditor-elements svg {
+	width: 25px;
+}
+.SVGEditor-elements svg path {
+	fill: #fff;
 }
