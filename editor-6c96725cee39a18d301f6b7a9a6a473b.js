@@ -89,10 +89,12 @@
 		constructor(container) {
 			this.container = container;
 			this.createCanvas();
-			this.setTemplate("Template 1")
+			this.setTemplate("Template 1");
 			this.createToolBar();
 
-			this.createTool(RawData.addText, "SVGEditor-add-text", "click", this.addText);
+			this.createTool(RawData.addText, "SVGEditor-add-text", "click", () =>
+				this.addText(),
+			);
 			this.createTool(RawData.addImg, "SVGEditor-add-img", "click", () => {});
 			this.createTool(
 				RawData.colorPicker,
@@ -103,14 +105,17 @@
 			this.createTool(
 				this.createTemplateSelector(),
 				"SVGEditor-themes",
-				"change",(e) => this.setTemplate(e.target.value)
+				"change",
+				(e) => this.setTemplate(e.target.value),
 			);
 			this.createTool(
 				RawData.share,
 				"SVGEditor-share",
 				"click",
 				() => {
-					svgToPng(this.canvas, RawData.templates[this.template].size, (e) => console.log(e))
+					svgToPng(this.canvas, RawData.templates[this.template].size, (e) =>
+						console.log(e),
+					);
 				},
 				false,
 			);
@@ -120,17 +125,24 @@
 				swatches: RawData.colorSwathces,
 			});
 			window.onresize = () => {
-				this.setTemplate(this.template)
-			}
+				this.setTemplate(this.template);
+			};
+			this.addText();
 		}
-		addText () {
-				let r = document.createElementNS('http://www.w3.org/2000/svg', "foreignObject");
-				r.draggable="true";
-				r.setAttribute("width", "220")
-				r.setAttribute("height", "50")
-				r.innerHTML = RawData.input;
-				this.canvas.appendChild(r);
-				dragElement(r)
+		addText() {
+			let r = document.createElementNS(
+				"http://www.w3.org/2000/svg",
+				"foreignObject",
+			);
+			r.draggable = "true";
+			r.setAttribute("width", "220");
+			r.setAttribute("height", "50");
+			r.setAttribute("x", "100");
+			r.setAttribute("y", "100");
+			r.innerHTML = RawData.input;
+			console.log(this);
+			this.canvas.appendChild(r);
+			dragElement(r);
 		}
 		createCanvas() {
 			this.canvasContainer = createElement("div");
@@ -185,15 +197,15 @@
 			return btn;
 		}
 
-		createTemplateSelector () {
-			let html = `<select name="" id="" class="SVGEditor-tool" style="border: 1px solid #fff; padding: 0 5px">`
+		createTemplateSelector() {
+			let html = `<select name="" id="" class="SVGEditor-tool" style="border: 1px solid #fff; padding: 0 5px">`;
 			for (let temp of Object.keys(RawData.templates)) {
-				html += `<option value="${temp}">${temp}</option>`
+				html += `<option value="${temp}">${temp}</option>`;
 			}
-			return html + "</select>"
+			return html + "</select>";
 		}
-		
-		getContainerGeometry () {
+
+		getContainerGeometry() {
 			let geometry = this.canvasContainer.getBoundingClientRect();
 			return [geometry.width, geometry.height];
 		}
@@ -201,64 +213,65 @@
 		setTemplate(temp) {
 			this.template = temp;
 			temp = RawData.templates[temp];
-			this.bgTemplate.setAttribute(
-				"href",
-				temp.src,
-			);
+			this.bgTemplate.setAttribute("href", temp.src);
 			let [cWidth, cHeight] = this.getContainerGeometry();
 			// img -> cWidth
 			let [iWidth, iHeight] = temp.size;
-			let w = cWidth, h = cWidth / iWidth * iHeight;
+			let w = cWidth,
+				h = (cWidth / iWidth) * iHeight;
 			if (h > cHeight) {
 				h = cHeight;
-				w = cHeight / iHeight * iWidth
+				w = (cHeight / iHeight) * iWidth;
 			}
-			
+
 			// offset 2px for border
 			w = Math.round(w - 2);
 			h = Math.round(h - 2);
 
 			this.canvas.setAttribute("width", w + "px");
 			this.canvas.setAttribute("height", h + "px");
-			this.canvas.setAttribute("viewport", "0 0 " + w + " "+ h);
+			this.canvas.setAttribute("viewport", "0 0 " + w + " " + h);
 		}
 	}
 
-	
-function dragElement(elem) {
-  var pos1 = parseInt(elem.x), pos2 = parseInt(elem.y), pos3 = 0, pos4 = 0;
-	elem.onmousedown = dragMouseDown;
+	/**
+	 *
+	 * @param {HTMLElement} elem
+	 */
+	function dragElement(elem) {
+		elem.onmousedown = dragMouseDown;
 
-  function dragMouseDown(e) {
-    e = e;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.layerX;
-    pos4 = e.layerY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
+		/**
+		 *
+		 * @param {MouseEvent} e
+		 */
+		function dragMouseDown(e) {
+			e = e;
+			e.preventDefault();
+			document.onmouseup = closeDragElement;
+			// call a function whenever the cursor moves:
+			document.onmousemove = elementDrag;
+		}
 
-  function elementDrag(e) {
-    e = e;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = e.layerX;
-    pos2 = e.layerY;
-    // pos3 = e.layerX;
-    // pos4 = e.layerY;
-    // set the element's new position:
-    elem.setAttribute("x", pos1);
-    elem.setAttribute("y", pos2);
-  }
+		/**
+		 *
+		 * @param {MouseEvent} e
+		 */
+		function elementDrag(e) {
+			e = e;
+			e.preventDefault();
+			let x = parseInt(elem.getAttribute("x")) + e.movementX;
+			let y = parseInt(elem.getAttribute("y")) + e.movementY;
+			elem.setAttribute("x", x);
+			elem.setAttribute("y", y);
+		}
 
-  function closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
+		function closeDragElement() {
+			// stop moving when mouse button is released:
+			document.onmouseup = null;
+			document.onmousemove = null;
+		}
+	}
 
 	window.SVGEditor = SVGEditor;
 })();
